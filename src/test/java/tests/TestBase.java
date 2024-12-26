@@ -1,5 +1,6 @@
 package tests;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -17,7 +18,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
@@ -44,4 +45,9 @@ public class TestBase {
         Attach.browserConsoleLogs();
         Attach.addVideo();
     }
+
+@AfterEach
+void afterEach() {
+    Selenide.closeWebDriver();
+}
 }

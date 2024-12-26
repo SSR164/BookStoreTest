@@ -6,9 +6,11 @@ import PageObject.PoLogin;
 import api.ApiBookStore;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.*;
 
+@Tag("bookStore")
 public class RegisterTest extends TestBase {
     ApiAccount apiAccount = new ApiAccount();
     ApiBookStore apiBookStore = new ApiBookStore();
