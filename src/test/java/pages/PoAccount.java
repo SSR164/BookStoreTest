@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class PoAccount {
     private SelenideElement booksPanel = $(".profile-wrapper"),
-            accountPanel = $(".row"),
+            accountPanel = $(".body-height"),
     //accountPanel = $(".body-height"),row
             closeSmallModalOk=$("#closeSmallModal-ok"),
             deleteBook=$(".profile-wrapper").$("#delete-record-undefined");
