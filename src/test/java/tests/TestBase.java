@@ -32,6 +32,10 @@ public class TestBase {
         ));
         Configuration.browserCapabilities = capabilities;
 
+
+    }
+    @BeforeEach
+     void beforeEach() {
         // Логирование для Allure
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
