@@ -22,6 +22,8 @@ public class AccountTest extends TestBase {
     PoLogin poLogin = new PoLogin();
     PoAccount poAccount = new PoAccount();
     ConfigBookStore configBookStore =new ConfigBookStore ();
+    //String password ="Test@12345";
+    //String userName = "TestSer";
     String password =configBookStore.getPassword();
     String userName = configBookStore.getUserName();
     String bookGitIsbn = "9781449325862";

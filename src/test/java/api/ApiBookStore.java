@@ -42,7 +42,7 @@ public class ApiBookStore {
                 .when()
                 .post("/v1/Books")
                 .then()
-                .spec(userResponseSpecification201)
+                .spec(userResponseSpecification201True)
                 .extract().response();
         return response;
     }

@@ -17,16 +17,20 @@ public class BookStoreApiSpecs {
         .contentType(JSON)
         .baseUri("https://demoqa.com/BookStore");
 
-    public static ResponseSpecification createResponseSpecification(int statusCode ) {
+    public static ResponseSpecification createResponseSpecification(int statusCode, boolean expectJson ) {
         ResponseSpecBuilder builder = new ResponseSpecBuilder()
                 .expectStatusCode(statusCode)
                 .log(STATUS)
                 .log(BODY);
 
+        if (expectJson) {
+            builder.expectContentType(JSON);
+        }
 
         return builder.build();
     }
 
-    public static final ResponseSpecification userResponseSpecification201 = createResponseSpecification(201);
-    public static final ResponseSpecification userResponseSpecification204 = createResponseSpecification(204);
+    public static final ResponseSpecification userResponseSpecification201 = createResponseSpecification(201,false);
+    public static final ResponseSpecification userResponseSpecification201True = createResponseSpecification(201,true);
+    public static final ResponseSpecification userResponseSpecification204 = createResponseSpecification(204,false);
 }
