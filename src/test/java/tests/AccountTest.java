@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static org.hamcrest.Matchers.*;
 
@@ -22,8 +23,6 @@ public class AccountTest extends TestBase {
     PoLogin poLogin = new PoLogin();
     PoAccount poAccount = new PoAccount();
     ConfigBookStore configBookStore =new ConfigBookStore ();
-    //String password ="Test@12345";
-    //String userName = "TestSer";
     String password =configBookStore.getPassword();
     String userName = configBookStore.getUserName();
     String bookGitIsbn = "9781449325862";

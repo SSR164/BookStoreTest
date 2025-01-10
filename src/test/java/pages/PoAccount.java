@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Condition.text;
 public class PoAccount {
     private SelenideElement booksPanel = $(".profile-wrapper"),
             accountPanel = $(".body-height"),
-    //accountPanel = $(".body-height"),row
             closeSmallModalOk=$("#closeSmallModal-ok"),
             deleteBook=$(".profile-wrapper").$("#delete-record-undefined");
 
@@ -29,7 +28,7 @@ public class PoAccount {
     }
     @Step("Проверяем авторизованный профиль ")
     public PoAccount checkUserName(String userName){
-        accountPanel.shouldNotHave(text(userName));
+        accountPanel.shouldHave(text(userName));
         return this;
     }
     @Step("Удаляем 1 книгу через UI ")
