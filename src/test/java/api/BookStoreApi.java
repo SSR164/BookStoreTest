@@ -1,7 +1,6 @@
 package api;
 
 import io.qameta.allure.Step;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import models.BookModel;
 
@@ -10,11 +9,10 @@ import java.util.List;
 
 import static helpers.CustomApiListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static specs.BookStoreApiSpecs.*;
+import static specs.ApiSpecs.*;
 
-public class ApiBookStore {
-    @Step("Удаляем все книги в профиле")
+public class BookStoreApi {
+    @Step("Удаляем все книги в профиле используя API")
     public Response deleteBooks(String userId, String token) {
         Response response = given(bookStoreRequestSpec)
                 .header("Authorization", "Bearer " + token)
@@ -26,8 +24,8 @@ public class ApiBookStore {
                 .extract().response();
         return response;
     }
-    @Step("Добавляем выбранную книгу в профиль")
-    public  Response addBooks (String bookIsbn, String token,String userId) {
+    @Step("Добавляем  книгу {bookName} в профиль используя API")
+    public  Response addBooks (String bookName,String bookIsbn, String token,String userId) {
         BookModel getBookModel = new BookModel();
         BookModel.CollectionOfIsbns collection = new BookModel.CollectionOfIsbns();
         getBookModel.setUserId(userId);
@@ -46,8 +44,8 @@ public class ApiBookStore {
                 .extract().response();
         return response;
     }
-    @Step("Удаляем выбранную книгу в профиле")
-    public  Response deleteBook(String userId, String token, String bookIsbn){
+    @Step("Удаляем книгу {bookName} в профиле используя API " )
+    public  Response deleteBook(String bookName,String userId, String token, String bookIsbn){
         BookModel bookModel =new BookModel();
         bookModel.setUserId(userId);
         bookModel.setIsbn(bookIsbn);

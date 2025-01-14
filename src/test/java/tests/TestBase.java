@@ -26,6 +26,7 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.remote = System.getProperty("remoteUrl");
         RestAssured.defaultParser = Parser.JSON;
+        RestAssured.baseURI="https://demoqa.com";
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

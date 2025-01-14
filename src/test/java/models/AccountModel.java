@@ -2,7 +2,7 @@ package models;
 
 import lombok.Data;
 @Data
-public class LombokModelAccount {
+public class AccountModel {
     private String userName;
     private String password ;
 }
