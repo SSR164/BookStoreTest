@@ -22,10 +22,8 @@ public class AccountTest extends TestBase {
     LoginPage poLogin = new LoginPage();
     AccountPage poAccount = new AccountPage();
     BookStoreConfig configBookStore =new BookStoreConfig();
-    //String password =configBookStore.getPassword();
-   // String userName = configBookStore.getUserName();
-    String password ="Test@12345";
-    String userName = "TestSer";
+    String password =configBookStore.getPassword();
+    String userName = configBookStore.getUserName();
     String bookGitIsbn = "9781449325862";
     String bookJsIsbn = "9781449331818";
     public String  bookGitName = "Git Pocket Guide";
@@ -53,7 +51,7 @@ public class AccountTest extends TestBase {
         poAccount.deleteBook(bookJsName);
         poAccount.deleteBookOk(bookJsName);
         poAccount.checkBook(bookGitName);
-        poAccount.checkNotBook(bookJsName);
+        poAccount.checkNotBook( bookJsName);
 
 
     }
