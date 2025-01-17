@@ -34,9 +34,9 @@ public class AccountTest extends TestBase {
     @DisplayName("UI проверка удаления одной книге в профиле")
     @Test
     void deletBookUiTest() {
-        Response responseapiAccountOne = apiAccount.loging(userName, password);
+        Response responseapiAccount = apiAccount.loging(userName, password);
         // Выводим ответ сервера для диагностики
-        System.out.println("Response: " + responseapiAccountOne.prettyPrint());
+        System.out.println("Response: " + responseapiAccount.prettyPrint());
         System.out.println("Username: " + System.getProperty("userName"));
         System.out.println("Password: " + System.getProperty("password"));
         Response responseapiAccount = apiAccount.loging(userName, password);
