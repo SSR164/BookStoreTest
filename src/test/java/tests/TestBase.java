@@ -18,8 +18,6 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("userName: " + System.getProperty("userName"));
-        System.out.println("password: " + System.getProperty("password"));
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
@@ -29,10 +27,10 @@ public class TestBase {
         Configuration.remote = System.getProperty("remoteUrl");
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI="https://demoqa.com";
-        // RestAssured.authentication = RestAssured.basic(
-               // System.getProperty("userName", "defaultUser"),
-            //    System.getProperty("password", "defaultPass")
-//);
+        RestAssured.authentication = RestAssured.basic(
+               System.getProperty("userName", "defaultUser"),
+            System.getProperty("password", "defaultPass")
+);
 
 
 
