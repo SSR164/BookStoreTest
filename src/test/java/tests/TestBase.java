@@ -18,8 +18,8 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("USERNAME: " + System.getProperty("USERNAME"));
-        System.out.println("PASSWORD: " + System.getProperty("PASSWORD"));
+        System.out.println("userName: " + System.getProperty("USERNAME"));
+        System.out.println("password: " + System.getProperty("PASSWORD"));
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
