@@ -28,7 +28,7 @@ public class TestBase {
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI="https://demoqa.com";
         RestAssured.authentication = RestAssured.basic(
-                System.getProperty("userName", "defaultUser"),
+                System.getProperty("username", "defaultUser"),
                 System.getProperty("password", "defaultPass")
         );
 
