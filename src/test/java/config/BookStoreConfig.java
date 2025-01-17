@@ -2,9 +2,9 @@ package config;
 
 public class BookStoreConfig {
     public static String getUserName(){
-        return System.getenv("USERNAME");
+        return System.getProperty("username");
     }
     public static String getPassword(){
-        return System.getenv("PASSWORD");
+        return System.getProperty("password");
     }
 }

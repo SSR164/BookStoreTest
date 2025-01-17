@@ -21,9 +21,9 @@ public class AccountTest extends TestBase {
     BookStoreApi apiBookStore = new BookStoreApi();
     LoginPage poLogin = new LoginPage();
     AccountPage poAccount = new AccountPage();
-    BookStoreConfig configBookStore =new BookStoreConfig();
-    String password =configBookStore.getPassword();
-    String userName = configBookStore.getUserName();
+    BookStoreConfig bookStoreConfig =new BookStoreConfig();
+    String userName = bookStoreConfig.getUserName();
+    String password = bookStoreConfig.getPassword();
     String bookGitIsbn = "9781449325862";
     String bookJsIsbn = "9781449331818";
     public String  bookGitName = "Git Pocket Guide";

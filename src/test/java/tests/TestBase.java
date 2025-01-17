@@ -27,6 +27,13 @@ public class TestBase {
         Configuration.remote = System.getProperty("remoteUrl");
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI="https://demoqa.com";
+        RestAssured.authentication = RestAssured.basic(
+                System.getProperty("userName", "defaultUser"),
+                System.getProperty("password", "defaultPass")
+        );
+
+
+
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
