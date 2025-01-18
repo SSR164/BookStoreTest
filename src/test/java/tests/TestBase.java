@@ -2,6 +2,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.BookStoreConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
@@ -14,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 public class TestBase {
+    BookStoreConfig bookStoreConfig =new BookStoreConfig();
 
 
     @BeforeAll
@@ -28,8 +30,9 @@ public class TestBase {
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI="https://demoqa.com";
         RestAssured.authentication = RestAssured.basic(
-                System.getProperty("userName", "defaultUser"),
-            System.getProperty("password", "defaultPass")
+                BookStoreConfig.getUserName(),
+                BookStoreConfig.getPassword()
+
 );
 
 

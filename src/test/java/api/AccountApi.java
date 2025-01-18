@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import models.AccountModel;
 import static io.restassured.RestAssured.given;
-import static specs.ApiSpecs.accountRequestSpec;
+import static specs.ApiSpecs.RequestSpec;
 import static specs.ApiSpecs.userResponseSpecification200;
 
 
@@ -16,10 +16,10 @@ public class AccountApi {
         lombokModelLogin.setUserName(userName);
         lombokModelLogin.setPassword(password);
 
-        Response response =given(accountRequestSpec)
+        Response response =given(RequestSpec)
                     .body(lombokModelLogin)
                 .when()
-                    .post("/v1/Login")
+                    .post("/Account/v1/Login")
                 .then()
                     .spec(userResponseSpecification200)
                     .extract().response();
@@ -27,10 +27,10 @@ public class AccountApi {
     }
     @Step("Получаем список книг в профиле используя API")
     public  Response getUserBooks (String token, String userId ){
-        Response response =given(accountRequestSpec)
+        Response response =given(RequestSpec)
                 .header("Authorization","Bearer "+token)
                 .when()
-                .get("/v1/User/"+userId)
+                .get("/Account/v1/User/"+userId)
                 .then()
                 .spec(userResponseSpecification200)
                 .extract().response();

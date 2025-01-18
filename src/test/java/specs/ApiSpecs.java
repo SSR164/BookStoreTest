@@ -12,17 +12,11 @@ import static io.restassured.http.ContentType.JSON;
 
 public class ApiSpecs {
 
-    public static RequestSpecification accountRequestSpec=with()
+    public static RequestSpecification RequestSpec=with()
             .filter(withCustomTemplates())
             .log().all()
-            .contentType(JSON)
-            .basePath("/Account");
+            .contentType(JSON);
 
-    public static RequestSpecification bookStoreRequestSpec=with()
-        .filter(withCustomTemplates())
-        .log().all()
-        .contentType(JSON)
-        .basePath("/BookStore");
 
     public static ResponseSpecification createResponseSpecification(int statusCode, boolean expectJson ) {
         ResponseSpecBuilder builder = new ResponseSpecBuilder()

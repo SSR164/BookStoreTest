@@ -14,11 +14,11 @@ import static specs.ApiSpecs.*;
 public class BookStoreApi {
     @Step("Удаляем все книги в профиле используя API")
     public Response deleteBooks(String userId, String token) {
-        Response response = given(bookStoreRequestSpec)
+        Response response = given(RequestSpec)
                 .header("Authorization", "Bearer " + token)
                 .queryParam("UserId", userId)
                 .when()
-                .delete("/v1/Books")
+                .delete("/BookStore/v1/Books")
                 .then()
                 .spec(userResponseSpecification204)
                 .extract().response();
@@ -33,12 +33,12 @@ public class BookStoreApi {
         List<BookModel.CollectionOfIsbns> collections =new ArrayList<>();
         collections.add(collection);
         getBookModel.setCollectionOfIsbns(collections);
-        Response response =given(bookStoreRequestSpec)
+        Response response =given(RequestSpec)
                 .body(getBookModel)
                 .filter(withCustomTemplates())
                 .header("Authorization", "Bearer " + token)
                 .when()
-                .post("/v1/Books")
+                .post("/BookStore/v1/Books")
                 .then()
                 .spec(userResponseSpecification201True)
                 .extract().response();
@@ -49,11 +49,11 @@ public class BookStoreApi {
         BookModel bookModel =new BookModel();
         bookModel.setUserId(userId);
         bookModel.setIsbn(bookIsbn);
-        Response response =given(bookStoreRequestSpec)
+        Response response =given(RequestSpec)
                 .body(bookModel)
                 .header("Authorization","Bearer "+token)
                 .when()
-                .delete("/BookStore/v1/Book")
+                .delete("/BookStore/BookStore/v1/Book")
                 .then()
                 .spec(userResponseSpecification204)
                 .extract().response();
